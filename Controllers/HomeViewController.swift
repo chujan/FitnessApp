@@ -793,17 +793,16 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     
-    private func navigateToExerciseDetails(exercise: Exercises, combinedData: Exercises) {
-        guard let selectedCategory = selectedCategory else {
-            // Handle the case when selectedCategory is nil
-            print("Selected category is nil.")
-            return
-        }
+        private func navigateToExerciseDetails(exercise: Exercises, combinedData: Exercises) {
+            let exerciseDetailsViewController = HomeDetailViewController(exercise: [exercise], combinedData: [combinedData], selectedCategory: selectedCategory)
+    
+    
+                  navigationController?.pushViewController(exerciseDetailsViewController, animated: true)
+                  navigationItem.largeTitleDisplayMode = .never
+    
+    
+            }
+    
 
-        let exerciseDetailsViewController = HomeDetailViewController(exercise: [exercise], combinedData: [combinedData], selectedCategory: selectedCategory)
-
-        navigationController?.pushViewController(exerciseDetailsViewController, animated: true)
-        navigationItem.largeTitleDisplayMode = .never
-    }
     
 }
